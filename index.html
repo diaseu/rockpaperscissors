@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock, Paper, Scissor</title>
+</head>
+
+<body>
+
+  <script>
+
+    let win = 0
+    let lose = 0
+
+    for (let i = 0; i < 10; i++) {
+      let player = prompt("Let's play rock, paper, scissor. Pick one: r, p, s.\n(The safe word is pineapple)")
+      let choices = ["r", "p", "s"]
+      let random = Math.floor(Math.random() * choices.length)
+      let pc = choices[random]
+      console.log(`You chose ${player}, and the computer chose ${pc}`)
+
+      if (player === "pineapple") {
+        break;
+      } else if (player === pc) {
+        alert('Draw!')
+      } else if (player === "r" && pc === "p") {
+        alert('You Lose...')
+        lose++
+        console.log(`You lost ${lose} times`)
+      } else if (player === "r" && pc === "s") {
+        alert('You Win!')
+        win++
+        console.log(`You won ${win} times`)
+      } else if (player === "s" && pc === "p") {
+        alert('You Win!')
+        win++
+        console.log(`You won ${win} times`)
+      } else if (player === "s" && pc === "r") {
+        alert('You Lose...')
+        lose++
+        console.log(`You lost ${lose} times`)
+      } else if (player === "p" && pc === "s") {
+        alert('You Lose...')
+        lose++
+        console.log(`You lost ${lose} times`)
+      } else if (player === "p" && pc === "r") {
+        alert('You Win!')
+        lose++
+        console.log(`You won ${win} times`)
+      } else {
+        alert('Cmon, play with me...')
+      }
+    }
+
+    console.log(`You won ${win} times, and you lost ${lose} times`)
+
+
+
+  </script>
+
+</body>
+
+</html>
