@@ -14,8 +14,9 @@
 
     let win = 0
     let lose = 0
+    let draw = 0
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 10; i > 0; i--) {
       let player = prompt("Let's play rock, paper, scissor. Pick one: r, p, s.\n(The safe word is pineapple)")
       let choices = ["r", "p", "s"]
       let random = Math.floor(Math.random() * choices.length)
@@ -26,38 +27,42 @@
         break;
       } else if (player === pc) {
         alert('Draw!')
+        draw++
+        console.log(`You drew ${draw} times and have ${i-1} turns left`)
       } else if (player === "r" && pc === "p") {
         alert('You Lose...')
         lose++
-        console.log(`You lost ${lose} times`)
+        console.log(`You lost ${lose} times and have ${i - 1} turns left`)
       } else if (player === "r" && pc === "s") {
         alert('You Win!')
         win++
-        console.log(`You won ${win} times`)
+        console.log(`You won ${win} times and have ${i - 1} turns left`)
       } else if (player === "s" && pc === "p") {
         alert('You Win!')
         win++
-        console.log(`You won ${win} times`)
+        console.log(`You won ${win} times and have ${i - 1} turns left`)
       } else if (player === "s" && pc === "r") {
         alert('You Lose...')
         lose++
-        console.log(`You lost ${lose} times`)
+        console.log(`You lost ${lose} times and have ${i - 1} turns left`)
       } else if (player === "p" && pc === "s") {
         alert('You Lose...')
         lose++
-        console.log(`You lost ${lose} times`)
+        console.log(`You lost ${lose} times and have ${i - 1} turns left`)
       } else if (player === "p" && pc === "r") {
         alert('You Win!')
         lose++
-        console.log(`You won ${win} times`)
+        console.log(`You won ${win} times and have ${i - 1} turns left`)
       } else {
         alert('Cmon, play with me...')
+        i--
+        console.log(`You still have ${i - 1} turns left`)
       }
     }
 
-    console.log(`You won ${win} times, and you lost ${lose} times`)
-
-
+    console.log(`You won ${win} times, you lost ${lose} times and you drew ${draw} times`)
+    
+    
 
   </script>
 
