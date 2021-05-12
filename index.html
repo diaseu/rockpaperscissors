@@ -12,13 +12,13 @@
 
   <script>
 
+    let choices = ["r", "p", "s"]
     let win = 0
     let lose = 0
     let draw = 0
 
     for (let i = 10; i > 0; i--) {
       let player = prompt("Let's play rock, paper, scissor. Pick one: r, p, s.\n(The safe word is pineapple)")
-      let choices = ["r", "p", "s"]
       let random = Math.floor(Math.random() * choices.length)
       let pc = choices[random]
       console.log(`You chose ${player}, and the computer chose ${pc}`)
@@ -26,42 +26,26 @@
       if (player === "pineapple") {
         break;
       } else if (player === pc) {
-        alert('Draw!')
         draw++
-        console.log(`You drew ${draw} times and have ${i-1} turns left`)
-      } else if (player === "r" && pc === "p") {
-        alert('You Lose...')
+        alert(`Draw!\nYou won ${win} times, lost ${lose} times, drew ${draw} times and have ${i-1} turns left`)
+      } else if ((player === "r" && pc === "p")
+              || (player === "s" && pc === "r")
+              || (player === "p" && pc === "s")) {
         lose++
-        console.log(`You lost ${lose} times and have ${i - 1} turns left`)
-      } else if (player === "r" && pc === "s") {
-        alert('You Win!')
+        alert(`You Lose..\nYou won ${win} times, lost ${lose} times, drew ${draw} times and have ${i - 1} turns left`)
+      } else if ((player === "r" && pc === "s")
+              || (player === "s" && pc === "p")
+              || (player === "p" && pc === "r")) {
         win++
-        console.log(`You won ${win} times and have ${i - 1} turns left`)
-      } else if (player === "s" && pc === "p") {
-        alert('You Win!')
-        win++
-        console.log(`You won ${win} times and have ${i - 1} turns left`)
-      } else if (player === "s" && pc === "r") {
-        alert('You Lose...')
-        lose++
-        console.log(`You lost ${lose} times and have ${i - 1} turns left`)
-      } else if (player === "p" && pc === "s") {
-        alert('You Lose...')
-        lose++
-        console.log(`You lost ${lose} times and have ${i - 1} turns left`)
-      } else if (player === "p" && pc === "r") {
-        alert('You Win!')
-        lose++
-        console.log(`You won ${win} times and have ${i - 1} turns left`)
+        alert(`You Win!\nYou won ${win} times, lost ${lose} times, drew ${draw} times and have ${i - 1} turns left`)
       } else {
-        alert('Cmon, play with me...')
+        alert(`Cmon, play with me... You still have ${i - 1} turns left`)
         i--
-        console.log(`You still have ${i - 1} turns left`)
       }
     }
 
     console.log(`You won ${win} times, you lost ${lose} times and you drew ${draw} times`)
-    
+    alert(`Thanks for playing with me.\nYou won ${win} times, you lost ${lose} times and you drew ${draw} times.`)
     
 
   </script>
